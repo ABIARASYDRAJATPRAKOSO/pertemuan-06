@@ -1,3 +1,5 @@
+import { Provider } from "react-redux";
+import { store } from '../redux/store/store';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import { useEffect } from "react";
@@ -8,7 +10,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   },[]);
 
-  return <Component {...pageProps} />;
+  return( 
+  <Provider store={store}>
+  <Component {...pageProps} />;
+  </Provider>
+  );
 }
 
 export default MyApp;
